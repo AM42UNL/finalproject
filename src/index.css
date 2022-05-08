@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+    --primary: #F77F00;
+    --secondary: #D62828;
+    --dark: #003049;
+    --light: #f4f1de;
+    --mid: #FCBF49;
+
+    --font: 'Fira Sans', sans-serif;
+    --font-quote: 'Fira Code', monospace;
+}
+
+
+html, body{
+    height: 100%;
+}
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    background-color: var(--mid);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 1em;
+    color: var(--dark);
+
+}
+
+.mcontainer{
+    height: 800px;
+    width: 950px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1em;
+
+}
+
+.mcard{
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: var(--light);
+    width: 182px;
+    height: 140px;
+    padding: 20px;
+    overflow-wrap: break-word;
+    text-align: center;
+    transform: rotateY(180deg);
+    animation: 3s hideMCard linear;
+    transition: transform 0.5s;
+    box-shadow: 1px -1px 2px var(--dark);
+}
+
+@keyframes hideMCard {
+    0%, 70%{
+        transform: rotateY(0);
+    }
+
+    100%{
+        transform: rotateY(180deg);
+        box-shadow: 1px -1px 2px var(--dark);
+    }
+}
+
+@keyframes hideText {
+    0%, 70% {
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0)
+    }
+}
+
+
+span {
+    transform:scale(0);
+    animation: 1.5s hideText linear;
+    transition: transform 0.5s;
+}
+
+
+.mcard.active{
+    transform: rotateY(0);
+}
+
+.mcard.active span{
+    transform: scale(1);
+}
+
+.mcard.wrong{
+    background-color: #020202;
+}
+
+.mcard.correct{
+    background-color: #023618;
+}
+
+
+.flexbox{
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1000px;
+    height: 70vh;
+
+    overflow: hidden;
+
+    margin: 0 auto;
+    padding: 5 px;
+
+}
+
+.flexbox .dboard{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 700px;
+
+    background-color: var(--dark);
+
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+.flexbox .dboard .dcard {
+    padding: 15px 25px;
+    background-color: var(--mid);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+body{
+    background-color: var(--light);
+}
+
+.IContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.quote{
+    position: relative;
+}
+
+blockquote{
+    font-family: var(--font-quote);
+    max-width: 720px;
+    font-size: 2rem;
+    background-color: var(--dark);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    color: var(--light);
+}
+.headerBar {
+    display: inline-flex;
+    font-size: 2rem;
+    background-color: var(--primary);
+    border-radius: 1.5rem;
+    color: var(--light);
+}
+
+.author, .citation {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    color: var(--light);
+    border-radius: 1.5rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.author {
+    background-color: var(--secondary);
+    transform: translate(-25%, 50%);
+    visibility: visible;
+}
+
+.citation {
+    background-color: var(--primary);
+    transform: translate(25%, 50%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background-color: var(--secondary);
+    color: var(--light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 3rem;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    transition: .4s;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+button:hover{
+    background-color: var(--dark);
+}
+
